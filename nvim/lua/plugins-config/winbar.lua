@@ -90,6 +90,7 @@ M.get_winbar = function()
   local value = M.get_filename()
 
   local gps_added = false
+
   if not utils.isempty(value) then
     local gps_value = get_gps()
     value = value .. " " .. gps_value
@@ -99,7 +100,9 @@ M.get_winbar = function()
   end
 
   if not utils.isempty(value) and utils.get_buf_option "mod" then
-    local mod = "%#LspCodeLens#" .. require("ui.icons").Circle .. "%*"
+    local icon_color = "#f2f68f"
+    local mod = "%#LspCodeLens#%#" .. "ModifiedIconHighlight" .. "#" .. require("ui.icons").Circle .. "%*" .. "%*"
+    vim.api.nvim_set_hl(0, "ModifiedIconHighlight", { fg = icon_color })
     if gps_added then
       value = value .. " " .. mod
     else
