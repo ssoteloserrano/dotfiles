@@ -40,6 +40,8 @@ telescope.setup {
       ".git",
       "vendor",
       "node_modules",
+      "__pycache__",
+      ".pytest_cache",
     }
   },
   pickers = {
