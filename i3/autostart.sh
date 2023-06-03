@@ -15,7 +15,7 @@ picom -b &
 # status bar
 ~/.config/polybar/launch.sh &
 
-# feh --bg-fill /home/$USER/Pictures/Wallpapers/1.jpg &
+feh --bg-fill /home/$USER/Pictures/Wallpapers/Wallpaper-Steven-Universe-HD.jpg &
 
 # auto sleep mode
 xset s off -dpms &
