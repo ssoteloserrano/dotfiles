@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 # monitors
-xrandr --output DP-1 --primary --auto --rotate normal --output DP-3 --auto --rotate right &
+# desktop
+# xrandr --output DP-1 --primary --auto --rotate normal --output DP-3 --auto --rotate right &
+# laptop
+xrandr --output HDMI-1 --left-of eDP-1 --auto &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -15,7 +18,7 @@ picom -b &
 # status bar
 ~/.config/polybar/launch.sh &
 
-feh --bg-fill /home/$USER/Pictures/Wallpapers/Wallpaper-Steven-Universe-HD.jpg &
+feh --bg-fill /home/$USER/Pictures/Wallpapers/scene.jpg &
 
 # auto sleep mode
 xset s off -dpms &
