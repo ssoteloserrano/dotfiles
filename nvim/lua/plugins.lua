@@ -69,12 +69,6 @@ return packer.startup(function(use)
   -- Icons
   use "kyazdani42/nvim-web-devicons"
 
-  -- changes the foreground color of the current
-  -- line number based on the current Vim mode
-  use {
-    "mawkler/modicator.nvim",
-  }
-
   use "tzachar/local-highlight.nvim"
 
   -- Buffers navigation and tabline
