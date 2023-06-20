@@ -5,7 +5,7 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#ED8796",
+          "foreground": "#ea76cb",
           "style": "plain",
           "template": "スカル ",
           "type": "session"
