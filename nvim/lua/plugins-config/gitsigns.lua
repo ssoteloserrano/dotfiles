@@ -3,13 +3,15 @@ if not ok then
   return
 end
 
-gitsigns.setup ({
+local icons = require("ui.icons")
+
+gitsigns.setup({
   signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    -- change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-  }, 
+    add = { text = icons.GitAdd2 },
+    change = { text = icons.GitChange2 },
+    delete = { text = icons.GitDelete2 },
+    topdelete = { text = icons.GitDelete2 },
+    changedelete = { text = icons.GitChange2 },
+    untracked = { text = icons.GitAdd2 },
+  },
 })
