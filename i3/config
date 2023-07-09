@@ -149,6 +149,8 @@ bindsym $mod+r mode "resize"
 # change wallpapers
 bindsym $mod+b exec --no-startup-id feh ~/Pictures/Wallpapers/* --recursive --randomize --bg-fill
 
+bindsym $mod+p exec "flameshot gui"
+
 for_window [class="^.*"] border pixel 0
 
 gaps inner 8px
