@@ -1,0 +1,7 @@
+{
+  "docker-compose": {
+    "Icon": "󰡨",
+    "Color": "blue",
+    "Emoji": "🐳"
+  }
+}
