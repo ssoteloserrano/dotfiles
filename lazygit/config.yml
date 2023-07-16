@@ -46,11 +46,11 @@ git:
   # colorArg: always
   # useConfig: false
   # pager: delta --dark --color-only --side-by-side
-  merging:
-    # only applicable to unix users
-    manualCommit: false
-    # extra args passed to `git merge`, e.g. --no-ff
-    args: ""
+  # merging:
+  #   # only applicable to unix users
+  #   manualCommit: false
+  #   # extra args passed to `git merge`, e.g. --no-ff
+  #   args: ""
   skipHookPrefix: WIP
   autoFetch: true
   autoRefresh: true
