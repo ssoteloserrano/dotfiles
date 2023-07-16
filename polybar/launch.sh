@@ -2,28 +2,49 @@
 
 # Terminate already running bar instances
 killall -q polybar
-# If all your bars have ipc enabled, you can also use 
-# polybar-msg cmd quit
 
-pacman_updates=$(checkupdates | wc -l)
-aur_updates=$(yay -Qua | wc -l)
-flatpak_updates=$(flatpak update -p | wc -l)
-total_updates=$((pacman_updates + aur_updates + flatpak_updates))
+export WM="module/${GDMSESSION}"
 
-export TOTAL_PKGS="%{T5} %{T-}$total_updates"
-export PACMAN_PKGS="󰮯 $pacman_updates"
-export AUR_PKGS="󰣇 $aur_updates"
-export FLATPAK_PKGS="󰏗 $flatpak_updates"
+arg1=$1
 
-# Launch main bar
-echo "---" | tee -a /tmp/polybar.log
+start_updates_counter() {
 
-if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload main &
-  done
-else
-  polybar --reload main &
-fi
+  pacman_updates=$(checkupdates | wc -l)
+  aur_updates=$(yay -Qua | wc -l)
+  flatpak_updates=$(flatpak update -p | wc -l)
+  total_updates=$((pacman_updates + aur_updates + flatpak_updates))
 
-echo "Bars launched..."
+  export TOTAL_PKGS="%{T3}  %{T-}$total_updates"
+  export PACMAN_PKGS="󰮯 $pacman_updates"
+  export AUR_PKGS="󰣇 $aur_updates"
+  export FLATPAK_PKGS="󰏗 $flatpak_updates"
+}
+
+get_bar() {
+  local received_argument="$1"
+  if [ -z "$received_argument" ]; then
+      echo "default"
+  else
+      echo "$received_argument"
+  fi
+}
+
+start_bar() {
+  # local current_bar=floating-minimalistic
+  local current_bar="$1"
+
+  if type "xrandr"; then
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      MONITOR=$m polybar --reload $current_bar &
+    done
+  else
+    polybar --reload $current_bar &
+  fi
+  echo "Bar launched..."
+}
+
+start_updates_counter
+arg1="$1"
+bar=$(get_bar "$arg1")
+start_bar "$bar"
+
