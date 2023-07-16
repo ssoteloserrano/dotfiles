@@ -30,3 +30,4 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Wrapper-2.0 monitor=primary follow=on state=floating border=off rectangle=500x600+0+0
 
 ~/.config/setup/scripts/autostart.sh &
+python ~/.config/setup/main.py -p floating-minimalistic &

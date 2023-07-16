@@ -156,5 +156,6 @@ for_window [class="^.*"] border pixel 0
 gaps inner 8px
 gaps outer 8px
 
-exec_always ~/.config/setup/scripts/autostart.sh &
+exec_always ~/.config/scripts/autostart.sh &
+exec_always python ~/.config/setup/main.py -p &
 
