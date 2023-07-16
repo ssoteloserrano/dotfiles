@@ -156,5 +156,5 @@ for_window [class="^.*"] border pixel 0
 gaps inner 8px
 gaps outer 8px
 
-exec_always ~/.config/i3/autostart.sh &
+exec_always ~/.config/setup/scripts/autostart.sh &
 
