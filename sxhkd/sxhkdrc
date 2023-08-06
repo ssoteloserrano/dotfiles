@@ -1,3 +1,8 @@
+# make sxhkd reload its configuration files:
+super + r
+	pkill -USR1 -x sxhkd; \
+    notify-send "sxhkd" "Configuration reloaded" -i "/usr/share/icons/Papirus-Dark/16x16/apps/preferences-desktop-keyboard-shortcuts.svg"
+
 #
 # wm independent hotkeys
 #
@@ -6,14 +11,49 @@
 super + Return
 	kitty
 
+# screenshot app
+super + p
+    flameshot gui
+
 # program launcher
-# super + @space
-super + d
+super + space
     rofi -modi drun,run -show drun
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+# calculator
+super + c
+    rofi -show calc -modi calc -no-show-match -no-sort
+
+# file manager
+super + f
+    dolphin --platformtheme qt5ct -style kvantum /home/$user
+
+# slack
+super + s
+    slack
+
+# email
+super + e
+    mailspring
+
+# dbeaver
+super + d
+    dbeaver
+
+# browser
+super + b
+    brave
+
+# note
+super + n
+    notion-app
+
+# music
+super + m
+    spotify-launcher
+
+# chat
+super + w
+    flatpak run com.ktechpit.whatsie
 
 ##########################
 #System
@@ -31,8 +71,6 @@ XF86AudioLowerVolume
 XF86AudioMute
 #amixer set Master toggle
     amixer -D pulse set Master 1+ toggle
-
-
 
 # Brightness goes up
 XF86MonBrightnessUp
@@ -56,7 +94,8 @@ XF86Launch1
 
 # quit/restart bspwm
 super + alt + {q,r}
-	bspc {quit,wm -r}
+	bspc {quit,wm -r}; \
+    notify-send "bspwm" "Configuration reloaded" -i "/usr/share/icons/Papirus-Dark/16x16/apps/cs-windows.svg"
 
 # close and kill
 super + {_,shift + }q
@@ -66,25 +105,17 @@ super + {_,shift + }q
 super + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
 # swap the current node and the biggest window
 super + g
 	bspc node -s biggest.window
 
 #
-# state/flags
+# state
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,shift + t,y,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
 
 #
 # focus/swap
