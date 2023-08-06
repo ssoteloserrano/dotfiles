@@ -70,16 +70,16 @@ cmp.setup({
     ["<C-e>"] = cmp.mapping.abort(),
     ["<C-l>"] = cmp.mapping.confirm({ select = false }),
     ["<C-j>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item()
-    else
-      fallback()
-    end
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
     end, { "i", "s" }),
     ["<C-k>"] = cmp.mapping(function()
-    if cmp.visible() then
-            cmp.select_prev_item()
-    end
+      if cmp.visible() then
+              cmp.select_prev_item()
+      end
     end, { "i", "s" }),
   }),
 
