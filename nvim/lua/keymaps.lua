@@ -6,6 +6,12 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- To debug vim mapping overlaps
+-- :verbose nmap <command>
+-- :verbose imap <command>
+-- :verbose vmap <command>
+-- :verbose noremap <command>
+
 vim.g.mapleader = " "
 
 local options = { noremap = true, silent = true }
@@ -23,6 +29,9 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- new tab
 vim.keymap.set("n", "te", ":tabedit<Return>")
+
+-- redef C-j to C-g
+vim.keymap.set("n", "<C-g>", "<Plug>IMAP_JumpForward", options)
 
 -- navigate windows
 vim.keymap.set("n", "<C-k>", "<CMD>wincmd k<CR>", options)
