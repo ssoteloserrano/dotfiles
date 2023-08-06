@@ -9,7 +9,7 @@ print_status() {
 
   local circle="\u25cf"
 
-  if [[ $state == "running" ]]; then
+  if [[ $state == *"running"* ]]; then
     state_color=${green}
   else
     state_color=${red}

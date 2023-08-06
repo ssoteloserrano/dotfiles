@@ -35,11 +35,19 @@ start_notification_daemon() {
   fi
 }
 
+start_wallpaper_switcher() {
+  if ! pgrep -x "variety" >/dev/null; then
+    variety &
+  else
+    print_status "Wallpaper Switcher" "running"
+  fi
+}
+
 set_screen_layout
 start_auth_agent
 start_compositor
 start_notification_daemon
+start_wallpaper_switcher
 
-feh ~/Pictures/Wallpapers/* --randomize --bg-fill & # random wallpaper
 xset s off -dpms & # auto sleep mode
 setxkbmap us altgr-intl & # keyboard layout
