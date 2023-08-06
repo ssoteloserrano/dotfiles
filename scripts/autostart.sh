@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/.config/setup/scripts/utils.sh
-
-# xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa xfsettingsd && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client1_Command -t string -sa xfdesktop && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client2_Command -t string -sa xfce4-panel && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client3_Command -t string -sa bspwm &
+source ~/.config/scripts/utils.sh
 
 set_screen_layout() {
   if [[ $HOSTNAME == archlinux ]]; then
