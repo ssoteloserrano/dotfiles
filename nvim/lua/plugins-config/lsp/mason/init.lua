@@ -13,12 +13,14 @@ if not lspconfig_status_ok then
   return
 end
 
+local icons = require("ui.icons")
+
 mason.setup({
 	ui = {
 		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗"
+			package_installed = icons.GitStaged,
+			package_pending = icons.GitRenamed,
+			package_uninstalled = icons.GitUnstaged
 		}
 	}
 })
@@ -33,13 +35,13 @@ mason_lspconfig.setup_handlers {
       lsp_config["emmet_ls"].setup {
         filetypes = {"html", "typescript", "javascript"},
         root_dir = lsp_config.util.find_git_ancestor,
-        on_attach = require("plugins-config.lsp.handlers").on_attach,
-        capabilities = require("plugins-config.lsp.handlers").capabilities,
+        on_attach = require("plugins-config.lsp.lsp-handlers").on_attach,
+        capabilities = require("plugins-config.lsp.lsp-handlers").capabilities,
       }
     else
       lsp_config[server_name].setup {
-        on_attach = require("plugins-config.lsp.handlers").on_attach,
-        capabilities = require("plugins-config.lsp.handlers").capabilities,
+        on_attach = require("plugins-config.lsp.lsp-handlers").on_attach,
+        capabilities = require("plugins-config.lsp.lsp-handlers").capabilities,
       }
     end
 

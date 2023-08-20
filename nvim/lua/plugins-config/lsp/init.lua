@@ -3,7 +3,9 @@ if not lspconfig_is_ok then
   return
 end
 
-require("plugins-config.lsp.mason-lspconfig")
-require("plugins-config.lsp.handlers").setup()
+local diagnostic_config = require("plugins-config.lsp.diagnostic.diagnostic")
+
+require("plugins-config.lsp.mason")
+require("plugins-config.lsp.lsp-handlers").setup(diagnostic_config)
 
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
