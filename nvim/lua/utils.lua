@@ -37,4 +37,14 @@ function utils.get_buf_option(opt)
   end
 end
 
+function utils.merge_tables(...)
+  local result = {}
+    for _, table_to_merge in ipairs({...}) do
+        for key, value in pairs(table_to_merge) do
+            result[key] = value
+        end
+    end
+    return result
+end
+
 return utils
