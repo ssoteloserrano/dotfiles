@@ -56,6 +56,7 @@ return packer.startup(function(use)
   use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
   use "tiagovla/tokyodark.nvim"
   use "navarasu/onedark.nvim"
+  use 'eddyekofo94/gruvbox-flat.nvim'
 
   -- Language highlighting
   use {
@@ -202,6 +203,15 @@ return packer.startup(function(use)
 
   use "f-person/git-blame.nvim"
 
+  use { "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+    },
+    config = function()
+      require("plugins-config.windows")
+    end
+  }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
