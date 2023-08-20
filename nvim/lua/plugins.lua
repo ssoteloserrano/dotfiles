@@ -213,6 +213,13 @@ return packer.startup(function(use)
     end
   }
 
+  use "lervag/vimtex"
+
+  use {
+    "m4xshen/hardtime.nvim",
+    requires = { 'MunifTanjim/nui.nvim', "nvim-lua/plenary.nvim" }
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
