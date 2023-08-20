@@ -64,6 +64,10 @@ opt.splitright     = true
 opt.list           = true
 opt.listchars      = { space = "⋅", tab = "| ", eol = "↴" }
 
+-- folding
+opt.foldmethod     = "indent"
+opt.foldenable     = false
+
 -- misc
 opt.updatetime     = 50
 opt.pumheight      = 10
