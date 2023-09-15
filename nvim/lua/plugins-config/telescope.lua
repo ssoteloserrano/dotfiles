@@ -106,7 +106,7 @@ end
 
 -- with builtin keymaps
 vim.keymap.set("n", "ff", find_files_from_root, { desc = "[F]ind [F]iles" })
-vim.keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "[F]ind opened [B]uffers" })
+vim.keymap.set("n", "<Leader>b", builtin.buffers, { desc = "[B]uffers" })
 vim.keymap.set("n", "<Leader>/", find_files_in_current_buffer, { desc = "[/] Fuzzily search in current buffer" })
 
 vim.keymap.set("n", "<Leader>r", builtin.oldfiles, { desc = "[R]ecently opened files" })

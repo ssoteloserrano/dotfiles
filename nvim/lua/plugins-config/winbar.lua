@@ -100,7 +100,8 @@ M.get_winbar = function()
   end
 
   if not utils.isempty(value) and utils.get_buf_option "mod" then
-    local icon_color = "#f2f68f"
+    -- local icon_color = "#f2f68f"
+    local icon_color = "#fea0a0"
     local mod = "%#LspCodeLens#%#" .. "ModifiedIconHighlight" .. "#" .. require("ui.icons").Circle .. "%*" .. "%*"
     vim.api.nvim_set_hl(0, "ModifiedIconHighlight", { fg = icon_color })
     if gps_added then

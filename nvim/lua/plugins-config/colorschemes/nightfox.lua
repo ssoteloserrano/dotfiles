@@ -3,11 +3,15 @@ if not nightfox_status_ok then
   return
 end
 
+local theme = "nightfox"
 nightfox.setup({
-  options = {
-    transparent = true,
+  transparent = true,
+  styles = {
+    comments = "italic",
+    keywords = "bold",
+    types = "italic,bold",
   }
 })
+nightfox.load()
 
--- vim.cmd("colorscheme nordfox")
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme " .. theme)

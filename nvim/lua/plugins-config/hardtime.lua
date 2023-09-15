@@ -3,4 +3,13 @@ if not ok then
   return
 end
 
-hardtime.setup()
+hardtime.setup({
+  restricted_keys = {
+      ["h"] = {},
+      ["j"] = {},
+      ["k"] = {},
+      ["l"] = {},
+      ["-"] = {},
+      ["+"] = {},
+  }
+})

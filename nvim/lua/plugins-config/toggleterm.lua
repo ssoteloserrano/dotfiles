@@ -13,21 +13,21 @@ toggleterm.setup {
   direction = "horizontal"
 }
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({
-  cmd = "lazygit",
-  dir = "git_dir",
-  direction = "float",
-  float_opts = {
-    border = "double",
-  },
-})
+-- local Terminal = require("toggleterm.terminal").Terminal
+-- local lazygit = Terminal:new({
+--   cmd = "lazygit",
+--   dir = "git_dir",
+--   direction = "float",
+--   float_opts = {
+--     border = "double",
+--   },
+-- })
 
-function _lazygit_toggle()
-  lazygit:toggle()
-end
+-- function _lazygit_toggle()
+--   lazygit:toggle()
+-- end
 
-vim.api.nvim_set_keymap("n", "<Leader>g", "<CMD>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<Leader>g", "<CMD>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "tt", "<CMD>ToggleTerm<CR>", { desc = "[T]oggle [T]erminal" })
 vim.keymap.set("n", "tl", "<CMD>ToggleTermSendCurrentLine<CR>")

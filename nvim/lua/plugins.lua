@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
 
   -- For neovim plugins dev
-  use { "nvim-lua/plenary.nvim", module = "plenary" }
+  use { "nvim-lua/plenary.nvim" }
 
   -- Colorschemes
   use "sainnhe/gruvbox-material"
@@ -56,7 +56,8 @@ return packer.startup(function(use)
   use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
   use "tiagovla/tokyodark.nvim"
   use "navarasu/onedark.nvim"
-  use 'eddyekofo94/gruvbox-flat.nvim'
+  use "eddyekofo94/gruvbox-flat.nvim"
+  use "folke/tokyonight.nvim"
 
   -- Language highlighting
   use {
@@ -217,7 +218,7 @@ return packer.startup(function(use)
 
   use {
     "m4xshen/hardtime.nvim",
-    requires = { 'MunifTanjim/nui.nvim', "nvim-lua/plenary.nvim" }
+    requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" }
   }
 
   if PACKER_BOOTSTRAP then

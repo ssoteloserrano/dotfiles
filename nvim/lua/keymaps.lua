@@ -20,6 +20,10 @@ local options = { noremap = true, silent = true }
 -- avoid yank with x
 vim.keymap.set("n", "x", "'_x")
 
+-- remap the yank dedicated register
+-- to paste from yank register and not from the unnamed one
+vim.keymap.set("n", "<M-p>", '"0p')
+
 -- increment/decrement
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
@@ -27,11 +31,15 @@ vim.keymap.set("n", "-", "<C-x>")
 -- select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
+-- redef C-j to C-g
+vim.keymap.set("n", "<C-g>", "<Plug>IMAP_JumpForward", options)
+
 -- new tab
 vim.keymap.set("n", "te", ":tabedit<Return>")
 
--- redef C-j to C-g
-vim.keymap.set("n", "<C-g>", "<Plug>IMAP_JumpForward", options)
+-- navigate tabs
+vim.keymap.set("n", "tl", ":tabnext<Return>")
+vim.keymap.set("n", "th", ":tabNext<Return>")
 
 -- navigate windows
 vim.keymap.set("n", "<C-k>", "<CMD>wincmd k<CR>", options)
@@ -67,7 +75,7 @@ vim.keymap.set("n", "<Leader>z", ":%s///g<Left><Left>", options)
 vim.keymap.set("n", "<Leader>f.", "<CMD>!open .<CR>", options)
 
 -- format JSON into human readable form
-vim.keymap.set("n", "<Leader>fo", ":%!python -m json.tool")
+vim.keymap.set("n", "fo", ":%!python -m json.tool", options)
 
 -- Visual --
 -- stay in indent mode
@@ -81,4 +89,3 @@ vim.keymap.set("x", "<Leader>z", ":s///g<Left><Left>", options)
 -- Terminal --
 -- return to normal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n><CR>", options)
-
