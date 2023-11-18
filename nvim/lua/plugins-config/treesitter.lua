@@ -3,9 +3,7 @@ if not ok then
   return
 end
 
-local ensure_installed = {}
-
-ensure_installed = { "c", "lua", "vim", "python", "javascript", "vue", "css", "html", "json", "markdown",
+local ensure_installed = { "c", "gitignore", "fish", "lua", "vim", "python", "javascript", "vue", "css", "html", "json", "markdown",
     "regex", "vim", "yaml", "php", "latex", "org", "norg" }
 
 treesitter.setup({
