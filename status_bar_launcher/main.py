@@ -5,7 +5,7 @@ from arguments import arguments
 from settings.setting import Setting
 
 POLYBAR_LAUNCH = ".config/polybar/launch.sh"
-EWW_LAUNCH = ".config/eww/"
+EWW_LAUNCH = ".config/eww/bar/launch_bar"
 
 
 def get_status_bar(settings: Setting) -> str:

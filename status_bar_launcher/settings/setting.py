@@ -4,8 +4,8 @@ from dataclasses import dataclass
 @dataclass
 class Setting:
     command: str = ""
-    use_polybar: bool = True
-    use_eww: bool = False
+    use_polybar: bool = False
+    use_eww: bool = True
 
     @classmethod
     def from_dict(cls, _dict):
