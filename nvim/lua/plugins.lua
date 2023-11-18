@@ -181,14 +181,6 @@ return packer.startup(function(use)
 
   use "mg979/vim-visual-multi"
 
-  use {
-    "rest-nvim/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("plugins-config.rest")
-    end,
-  }
-
   -- For laravel
   use "jwalton512/vim-blade"
 
