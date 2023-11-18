@@ -6,7 +6,7 @@ end
 local ensure_installed = {}
 
 ensure_installed = { "c", "lua", "vim", "python", "javascript", "vue", "css", "html", "json", "markdown",
-    "regex", "vim", "yaml", "php", "latex" }
+    "regex", "vim", "yaml", "php", "latex", "org", "norg" }
 
 treesitter.setup({
     ensure_installed = ensure_installed,

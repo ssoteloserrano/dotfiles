@@ -58,6 +58,17 @@ return packer.startup(function(use)
   use "navarasu/onedark.nvim"
   use "eddyekofo94/gruvbox-flat.nvim"
   use "folke/tokyonight.nvim"
+  use "rebelot/kanagawa.nvim"
+
+  use {
+      "nvim-neorg/neorg",
+      after = "nvim-treesitter",
+      config = function()
+        require("plugins-config.norg")
+      end,
+      run = ":Neorg sync-parsers",
+      requires = "nvim-lua/plenary.nvim",
+  }
 
   -- Language highlighting
   use {
