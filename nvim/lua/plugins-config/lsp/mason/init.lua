@@ -25,14 +25,15 @@ mason.setup({
 	}
 })
 
-mason_lspconfig.setup()
+mason_lspconfig.setup {
+  ensure_installed = { 'tsserver', 'dockerls', 'lua_ls', 'eslint', 'bashls', 'pylsp', 'html', 'intelephense', 'gopls', 'texlab', 'jsonls', 'emmet_language_server' },
+}
 mason_lspconfig.setup_handlers {
-
   function (server_name)
     -- We are overriding the default Emmet server setup handler
     -- to have access to all html tags inside .ts and .js files
-    if server_name == "emmet_ls" then
-      lsp_config["emmet_ls"].setup {
+    if server_name == "emmet_language_server" then
+      lsp_config["emmet_language_server"].setup {
         filetypes = {"html", "typescript", "javascript"},
         root_dir = lsp_config.util.find_git_ancestor,
         on_attach = require("plugins-config.lsp.lsp-handlers").on_attach,
@@ -44,7 +45,5 @@ mason_lspconfig.setup_handlers {
         capabilities = require("plugins-config.lsp.lsp-handlers").capabilities,
       }
     end
-
   end
-
 }
