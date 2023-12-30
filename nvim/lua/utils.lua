@@ -5,23 +5,21 @@ function utils.get_current_os()
 end
 
 function utils.get_project_root()
-  local root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-  if vim.v.shell_error ~= 0 then
-    -- if not git then check for Dockerfile or docker-compose.yaml/docker-compose.yml
-    local dockerfile = vim.fn.findfile("Dockerfile", ".;")
-    local dockercompose = vim.fn.findfile("docker-compose.yaml;docker-compose.yml", ".;")
-    
-    if dockerfile ~= "" then
-      root = vim.fn.fnamemodify(dockerfile, ":h")
-    elseif dockercompose ~= "" then
-      root = vim.fn.fnamemodify(dockercompose, ":h")
-    else
-      -- if no Dockerfile or docker-compose.yaml/docker-compose.yml found, get LSP root
-      -- will get the configured root directory of the first attached lsp. You will have problems if you are using multiple lsps
-      root = vim.lsp.get_active_clients()[1].config.root_dir
+  local active_lsp_clients = vim.lsp.get_active_clients()
+  if type(active_lsp_clients) == "table" and next(active_lsp_clients) ~= nil then
+    return active_lsp_clients[1].config.root_dir
+  end
+
+  local files = vim.fn.split(".git,Dockerfile,docker-compose.yaml,docker-compose.yml,index.md,index.yml", ",")
+
+  for _, file in ipairs(files) do
+    local result = vim.fn.findfile(file, ".;")
+    if result ~= "" then
+      return vim.fn.fnamemodify(file, ":h");
     end
   end
-  return root
+
+  return vim.fn.getcwd()
 end
 
 function utils.isempty(s)
