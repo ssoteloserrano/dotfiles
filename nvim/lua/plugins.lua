@@ -18,7 +18,7 @@ local plugins = {
   "sainnhe/gruvbox-material",
   "Shatur/neovim-ayu",
   -- with transparent options
-  { "catppuccin/nvim", name = "catppuccin" },
+  { "catppuccin/nvim",        name = "catppuccin" },
   "sainnhe/everforest",
   { "EdenEast/nightfox.nvim", version = "v1.0.0" },
   "tiagovla/tokyodark.nvim",
@@ -28,13 +28,13 @@ local plugins = {
   "rebelot/kanagawa.nvim",
 
   {
-      "nvim-neorg/neorg",
-      after = "nvim-treesitter",
-      config = function()
-        require("plugins-config.norg")
-      end,
-      build = ":Neorg sync-parsers",
-      dependencies = "nvim-lua/plenary.nvim",
+    "nvim-neorg/neorg",
+    after = "nvim-treesitter",
+    config = function()
+      require("plugins-config.norg")
+    end,
+    build = ":Neorg sync-parsers",
+    dependencies = "nvim-lua/plenary.nvim",
   },
 
   -- Language highlighting
@@ -64,7 +64,8 @@ local plugins = {
   "lukas-reineke/indent-blankline.nvim",
 
   -- File search and much more
-  "junegunn/fzf", build = "fzf#install()",
+  "junegunn/fzf",
+  build = "fzf#install()",
 
   -- File explorer within nvim
   "kyazdani42/nvim-tree.lua",
@@ -90,11 +91,11 @@ local plugins = {
           require("luasnip.loaders.from_vscode").lazy_load()
         end,
       },
-      { "hrsh7th/cmp-buffer",                  },
-      { "hrsh7th/cmp-path",                    },
-      { "hrsh7th/cmp-nvim-lua",                },
-      { "hrsh7th/cmp-nvim-lsp",                },
-      { "saadparwaiz1/cmp_luasnip",            },
+      { "hrsh7th/cmp-buffer", },
+      { "hrsh7th/cmp-path", },
+      { "hrsh7th/cmp-nvim-lua", },
+      { "hrsh7th/cmp-nvim-lsp", },
+      { "saadparwaiz1/cmp_luasnip", },
       { "hrsh7th/cmp-nvim-lsp-signature-help", },
     },
   },
@@ -175,7 +176,8 @@ local plugins = {
 
   "f-person/git-blame.nvim",
 
-  { "anuvyklack/windows.nvim",
+  {
+    "anuvyklack/windows.nvim",
     dependencies = {
       "anuvyklack/middleclass",
       "anuvyklack/animation.nvim"
@@ -193,15 +195,84 @@ local plugins = {
   },
 
   {
+    "lukas-reineke/indent-blankline.nvim",
+    -- event = "LazyFile",
+    opts = {
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
+      },
+    },
+    main = "ibl",
+  },
+
+  -- Active indent guide and indent text objects. When you're browsing
+  -- code, this highlights the current level of indentation, and animates
+  -- the highlighting.
+  {
+    "echasnovski/mini.indentscope",
+    version = false, -- wait till new 0.7.0 release to put it back on semver
+    opts = {
+      -- symbol = "▏",
+      symbol = "│",
+      options = { try_as_border = true },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+  },
+
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
       }
+  },
+
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {},
   }
 }
 

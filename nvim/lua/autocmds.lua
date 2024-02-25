@@ -4,6 +4,7 @@ vim.cmd [[autocmd FileType css setlocal shiftwidth=2 tabstop=2]]
 vim.cmd [[autocmd FileType lua setlocal shiftwidth=2 tabstop=2]]
 vim.cmd [[autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4]]
 vim.cmd [[autocmd FileType php setlocal expandtab shiftwidth=4 softtabstop=4]]
+vim.cmd [[autocmd FileType markdown setlocal conceallevel=1]]
 
 -- vim.cmd([[
 --     autocmd FileType javascript setlocal makeprg=docker\ compose\ exec\ node\ npm\ run\ test
