@@ -17,7 +17,7 @@ return {
       minimum_width = 50,
       render = "default",
       stages = "fade_in_slide_out",
-      timeout = 50,
+      timeout = 30,
       top_down = true
     }
   end
