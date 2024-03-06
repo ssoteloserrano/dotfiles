@@ -14,13 +14,9 @@ return {
             autoselect_one = true,
             include_current = false,
             filter_rules = {
-              -- filter using buffer options
               bo = {
-                -- if the file type is one of following, the window will be ignored
                 filetype = { "neo-tree", "neo-tree-popup", "notify" },
-
-                -- if the buffer type is one of following, the window will be ignored
-                buftype = { "terminal", "quickfix" },
+                buftype = { "terminal", "quickfix", "nofile" },
               },
             },
             other_win_hl_color = "#e35e4f",
@@ -30,11 +26,20 @@ return {
     },
     config = function ()
       require("neo-tree").setup({
+        log_level = 'warn',
         filesystem = {
+          filtered_items = {
+            always_show = {
+              ".gitignore",
+              ".env",
+            },
+          },
           window = {
+            position = "float",
             mappings = {
               ["l"] = "open_with_window_picker",
               ["v"] = "open_vsplit",
+              ["h"] = "open_split",
               ["o"] = "system_open",
             }
           },
@@ -42,8 +47,7 @@ return {
             system_open = function(state)
               local node = state.tree:get_node()
               local path = node:get_id()
-              -- Linux: open file in default application
-              vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+              vim.fn.jobstart({ "nemo", path }, { detach = true })
             end,
           },
         },
@@ -58,6 +62,6 @@ return {
       })
 
       local options = { noremap = true, silent = true }
-      vim.keymap.set("n", "<Leader>n", ":Neotree toggle filesystem reveal right<CR>", options)
+      vim.keymap.set("n", "<Leader>n", ":Neotree toggle filesystem reveal<CR>", options)
     end
 }
