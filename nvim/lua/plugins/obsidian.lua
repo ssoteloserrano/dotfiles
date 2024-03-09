@@ -8,11 +8,11 @@ return {
   },
   opts = {},
   config = function ()
-    local home_dir = os.getenv("NEORG_HOME_DIR") -- "/home/scar/Notes"
+    local home_dir = os.getenv("OBSIDIAN_VAULT_DIR")
     require("obsidian").setup ({
       workspaces = {
         {
-          name = "Notes",
+          name = "ObsidianVault",
           path = home_dir,
         },
       },
