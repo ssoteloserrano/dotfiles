@@ -61,7 +61,7 @@ return {
             no_ignore = true,
           },
           buffers = {
-            layout_config = { preview_width = 0.5 },
+            layout_config = { preview_width = 0.6 },
             ignore_current_buffer = true,
             sort_mru = true,
             mappings = {
@@ -72,6 +72,12 @@ return {
                 ["<c-d>"] = actions.delete_buffer,
               },
             },
+          },
+          help_tags = {
+            layout_config = { preview_width = 0.6 },
+          },
+          live_grep = {
+            layout_config = { preview_width = 0.6 },
           },
           colorscheme = {
             enable_preview = true
@@ -120,10 +126,11 @@ return {
       vim.keymap.set("n", "<Leader>w", builtin.live_grep, { desc = "Find [W]ord" })
       vim.keymap.set("n", "<Leader>wo", find_string_in_open_buffers, { desc = "Find [W]ord in [O]pen Buffers" })
       vim.keymap.set("n", "<Leader>cs", builtin.colorscheme, { desc = "[C]olor [S]cheme" })
+      vim.keymap.set("n", "<Leader>h", builtin.help_tags, { desc = "[H]elp Tags" })
       vim.keymap.set("n", "<Leader>c", builtin.registers)
 
       -- with plugin keymaps 
-      vim.keymap.set("n", "<Leader>p", ":lua require('telescope').extensions.project.project{}<CR>")
+      -- vim.keymap.set("n", "<Leader>p", ":lua require('telescope').extensions.project.project{}<CR>")
       vim.keymap.set("n", "dv", ":lua require('telescope').extensions.git_diffs.diff_commits()<CR>")
     end
   },

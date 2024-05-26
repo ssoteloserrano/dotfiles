@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export OBSIDIAN_VAULT_DIR:/home/scar/Notes
 SETUVAR SSH_KEYS_TO_AUTOLOAD:enviame\x2dssh
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z

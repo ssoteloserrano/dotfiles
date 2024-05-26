@@ -9,3 +9,6 @@ end
 oh-my-posh init fish --config ~/.config/.poshthemes/zash.modified.json | source
 
 source ~/.config/fish/env_vars.fish
+
+# Created by `pipx` on 2024-05-14 02:46:35
+set PATH $PATH /home/scar/.local/bin
