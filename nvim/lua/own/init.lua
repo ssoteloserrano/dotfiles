@@ -1,2 +1,2 @@
-require("own.owncmds")
+-- require("own.owncmds")
 require("own.winbar")

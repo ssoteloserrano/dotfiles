@@ -97,3 +97,15 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     vim.api.nvim_exec('silent! normal! g`"zv', false)
   end,
 })
+
+
+vim.api.nvim_create_autocmd({ "RecordingEnter" }, {
+  callback = function()
+               vim.opt.cmdheight = 1
+             end,
+})
+vim.api.nvim_create_autocmd({ "RecordingLeave" }, {
+  callback = function()
+               vim.opt.cmdheight = 0
+             end,
+})

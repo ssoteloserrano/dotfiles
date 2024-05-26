@@ -78,8 +78,8 @@ vim.keymap.set("n", "<Leader>f.", "<CMD>!open .<CR>", options)
 vim.keymap.set("n", "fo", ":%!python -m json.tool", options)
 
 -- record/execute macros
-vim.keymap.set("n", "Q", "q", options)
-vim.keymap.set("n", "q", "@", options)
+-- vim.keymap.set("n", "Q", "q", options)
+-- vim.keymap.set("n", "q", "@", options)
 
 -- Visual --
 -- stay in indent mode

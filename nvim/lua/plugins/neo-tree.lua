@@ -32,6 +32,8 @@ return {
             always_show = {
               ".gitignore",
               ".env",
+              ".env.prod",
+              ".env.stage",
             },
           },
           window = {

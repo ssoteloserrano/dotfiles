@@ -21,7 +21,7 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup {
-        ensure_installed = { "tsserver", "dockerls", "lua_ls", "eslint", "bashls", "pylsp", "html", "intelephense", "gopls", "texlab", "jsonls", "emmet_language_server" },
+        ensure_installed = { "tsserver", "dockerls", "lua_ls", "eslint", "bashls", "pylsp", "html", "intelephense", "gopls", "texlab", "jsonls", "emmet_language_server", "cucumber_language_server" },
       }
       mason_lspconfig.setup_handlers {
         function (server_name)
@@ -33,6 +33,34 @@ return {
               root_dir = lsp_config.util.find_git_ancestor,
               on_attach = require("plugins.lsp.lsp-handlers").on_attach,
               capabilities = require("plugins.lsp.lsp-handlers").capabilities,
+            }
+          elseif server_name == "pylsp" then
+            lsp_config["pylsp"].setup {
+              on_attach = require("plugins.lsp.lsp-handlers").on_attach,
+              capabilities = require("plugins.lsp.lsp-handlers").capabilities,
+              settings = {
+                pylsp = {
+                  plugins = {
+                    -- formatter options
+                    black = { enabled = true },
+                    autopep8 = { enabled = false },
+                    yapf = { enabled = false },
+                    -- linter options
+                    -- pylint = { enabled = true, executable = "pylint" },
+                    pyflakes = { enabled = true },
+                    -- pycodestyle = { enabled = true },
+                    -- type checker
+                    pylsp_mypy = { enabled = true },
+                    -- auto-completion options
+                    jedi_completion = { fuzzy = true },
+                    -- import sorting
+                    pyls_isort = { enabled = true },
+                  },
+                },
+              },
+              flags = {
+                debounce_text_changes = 200,
+              },
             }
           else
             lsp_config[server_name].setup {
