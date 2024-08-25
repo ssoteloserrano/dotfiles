@@ -78,6 +78,9 @@ return {
       local diagnostic_config = require("plugins.lsp.diagnostic.diagnostic")
       require("plugins.lsp.lsp-handlers").setup(diagnostic_config)
       vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+      vim.cmd [[
+        autocmd BufRead,BufNewFile .env* set filetype=sh
+      ]]
     end
   },
 }
