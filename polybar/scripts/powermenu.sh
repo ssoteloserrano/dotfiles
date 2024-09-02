@@ -8,11 +8,11 @@ uptime=$(uptime -p | sed -e 's/up //g')
 rofi_command="rofi"
 
 # Options
-shutdown=" Shutdown"
-reboot=" Restart"
-lock=" Lock"
-suspend=" Sleep"
-logout=" Logout"
+shutdown=" Shutdown"
+reboot=" Restart"
+lock=" Lock"
+suspend="⏾ Sleep"
+logout=" Logout"
 
 # Confirmation
 confirm_exit() {
@@ -28,9 +28,9 @@ msg() {
 }
 
 # Variable passed to rofi
-options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+options="$reboot\n$shutdown\n$suspend\n$logout\n$lock"
 
-chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0 -theme $HOME/.config/rofi/launchers/type-3/style-1.rasi)"
 case $chosen in
     $shutdown)
 		ans=$(confirm_exit &)
@@ -53,12 +53,12 @@ case $chosen in
         fi
         ;;
     $lock)
-		if [[ -f /usr/bin/i3lock ]]; then
-			i3lock
-		elif [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
-		fi
-        ;;
+		# if [[ -f /usr/bin/i3lock ]]; then
+		# 	i3lock
+		# elif [[ -f /usr/bin/betterlockscreen ]]; then
+		# 	betterlockscreen -l
+		# fi
+		#         ;;
     $suspend)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
