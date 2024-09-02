@@ -25,7 +25,7 @@ local conditions = {
 local user_name = {
   -- mode component
   function()
-    return "スカル"
+    return "アーチ"
   end,
   color = function()
     -- auto change color according to neovims mode
