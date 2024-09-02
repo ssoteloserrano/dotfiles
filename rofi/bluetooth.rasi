@@ -12,7 +12,7 @@ configuration {
 @import                          "shared/fonts.rasi"
 **/
 
-@import "~/.config/rofi/colors/catppuccin.rasi"
+@import                          "colors/catppuccin.rasi"
 @import                          "launchers/type-1/shared/fonts.rasi"
 
 * {
@@ -102,7 +102,7 @@ textbox-prompt-colon {
     padding:                     8px 11.5px;
     border-radius:               0px;
     expand:                      false;
-    str:                         "";
+    str:                         "  ";
     background-color:            @active;
     text-color:                  @background;
 }

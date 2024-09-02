@@ -49,7 +49,6 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       500px;
-    height:                      475px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -72,7 +71,7 @@ mainbox {
     padding:                     20px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
-    border-color:                @selected;
+    border-color:                @border-colour;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
@@ -85,10 +84,10 @@ inputbar {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @border-colour;
     background-color:            transparent;
-    text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "prompt", "entry" ];
+    text-color:                  @foreground-colour;
+    children:                    [ "textbox-prompt-colon", "prompt" ];
 }
 
 prompt {
@@ -103,7 +102,7 @@ textbox-prompt-colon {
     padding:                     8px 11.5px;
     border-radius:               0px;
     expand:                      false;
-    str:                         " 直  ";
+    str:                         "  ";
     background-color:            @active;
     text-color:                  @background;
 }
@@ -113,7 +112,7 @@ entry {
     border:                      0px 0px 1px 0px;
     border-radius:               0px;
     border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "";
@@ -148,7 +147,7 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       6;
+    lines:                       7;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   true;
@@ -171,7 +170,7 @@ scrollbar {
     handle-width:                5px ;
     handle-color:                @handle-colour;
     border-radius:               0px;
-    background-color:            transparent;
+    background-color:            @alternate-background;
 }
 
 /*****----- Elements -----*****/
