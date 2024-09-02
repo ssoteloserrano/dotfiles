@@ -16,8 +16,8 @@ super + p
     flameshot gui
 
 # program launcher
-super + space
-    rofi -modi drun,run -show drun
+super + alt + {space,p}
+    rofi -show {drun,window} -theme $HOME/.config/rofi/launchers/type-3/style-1.rasi
 
 # calculator
 super + c
@@ -148,7 +148,7 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
+super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
