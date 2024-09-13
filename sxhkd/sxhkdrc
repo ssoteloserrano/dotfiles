@@ -15,8 +15,8 @@ super + Return
 ##---------- Rofi Launcher & Menus ----------##
 
 # program launcher
-super + alt + {space,b}
-    rofi -show {drun,window} -theme $HOME/.config/rofi/launchers/type-3/style-1.rasi
+super + shift + {space,r}
+    rofi -show {drun,window} -theme $HOME/.config/rofi/launchers/transparent/style.rasi
 
 # calculator
 super + alt + c
@@ -84,7 +84,7 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,alt + }{1-9,0}
+super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
 # swap the current node and the biggest window
@@ -112,14 +112,14 @@ super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
+super + ctrl + Escape
 	bspc node -p cancel
 
 # move current window to a pre-selected space
 super + ctrl + m
     bspc node -n last.!automatic
 
-super + shift + space
+super + ctrl + t
     bspc node -t "~"{pseudo_tiled,tiled}
 
 
@@ -128,8 +128,8 @@ super + shift + space
 #
 
 # expand a window by moving one of its side outward
-# super + {h,j,k,l}
-# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+super + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}

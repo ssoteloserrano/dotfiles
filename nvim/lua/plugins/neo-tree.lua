@@ -43,6 +43,7 @@ return {
               ["v"] = "open_vsplit",
               ["h"] = "open_split",
               ["o"] = "system_open",
+              ["P"] = { "toggle_preview", config = { use_float = true } },
             }
           },
           commands = {

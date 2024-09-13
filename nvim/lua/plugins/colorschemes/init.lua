@@ -1,1 +1,1 @@
-return require("plugins.colorschemes.everforest")
+return require("plugins.colorschemes.catppuccin")
