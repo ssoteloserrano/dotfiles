@@ -109,7 +109,7 @@ lualine.setup {
     theme = scar_theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = " ", right = "" },
-    disabled_filetypes = {},
+    disabled_filetypes = { "neo-tree" },
     always_divide_middle = false,
   },
   sections = {

@@ -8,11 +8,16 @@ local git_icons = {
   GitConflict = "",
   GitDelete = "",
   GitDelete2 = " ",
-  GitIgnored = "◌",
   GitRenamed = "➜",
   GitStaged = "✓",
   GitUnstaged = "✗",
-  GitUntracked = "★",
+  GitAddedNeoTree = "✚",
+  GitDeletedNeoTree = "✖",
+  GitUntrackedNeoTree = "",
+  GitIgnoredNeoTree = "◌",
+  GitUnstagedNeoTree = "",
+  GitStagedNeoTree = "",
+  GitRenamedNeoTree = "󰁕",
 }
 
 local code_icons = {

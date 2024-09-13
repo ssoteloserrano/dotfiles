@@ -9,24 +9,14 @@ return {
         "s1n7ax/nvim-window-picker",
         name = "window-picker",
         version = "2.*",
-        config = function()
-          require("window-picker").setup({
-            autoselect_one = true,
-            include_current = false,
-            filter_rules = {
-              bo = {
-                filetype = { "neo-tree", "neo-tree-popup", "notify" },
-                buftype = { "terminal", "quickfix", "nofile" },
-              },
-            },
-            other_win_hl_color = "#e35e4f",
-          })
-        end,
+        opts = {},
       }
     },
     config = function ()
+      local icons = require("ui.icons")
       require("neo-tree").setup({
-        log_level = 'warn',
+        log_level = "warn",
+        enable_diagnostics = false,
         filesystem = {
           filtered_items = {
             always_show = {
@@ -34,10 +24,13 @@ return {
               ".env",
               ".env.prod",
               ".env.stage",
+              ".env.example",
+              ".dockerignore",
+              ".gcloudignore",
             },
           },
           window = {
-            position = "float",
+            position = "right",
             mappings = {
               ["l"] = "open_with_window_picker",
               ["v"] = "open_vsplit",
@@ -61,6 +54,24 @@ return {
               require("neo-tree.command").execute({ action = "close" })
             end
           },
+        },
+        default_component_configs = {
+          git_status = {
+            symbols = {
+              -- Change type
+              added     = icons["GitAddedNeoTree"],
+              modified  = icons["Circle"],
+              deleted   = icons["GitDeletedNeoTree"],
+              renamed   = icons["GitRenamedNeoTree"],
+              -- Status type
+              untracked = icons["GitUntrackedNeoTree"],
+              ignored   = icons["GitIgnoredNeoTree"],
+              unstaged  = icons["GitUnstagedNeoTree"],
+              staged    = icons["GitStagedNeoTree"],
+              conflict  = icons["GitConflict"],
+            }
+          },
+
         }
       })
 

@@ -7,6 +7,7 @@ M.winbar_filetype_exclude = {
   "packer",
   "neogitstatus",
   "NvimTree",
+  "neo-tree",
   "Trouble",
   "alpha",
   "lir",
