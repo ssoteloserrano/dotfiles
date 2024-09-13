@@ -26,7 +26,8 @@ return {
       "php",
       "latex",
       "org",
-      "norg"
+      "norg",
+      "dockerfile",
     }
 
     require("nvim-treesitter.configs").setup({
