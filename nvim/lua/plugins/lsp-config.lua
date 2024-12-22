@@ -21,7 +21,7 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup {
-        ensure_installed = { "tsserver", "dockerls", "lua_ls", "eslint", "bashls", "pylsp", "html", "intelephense", "gopls", "texlab", "jsonls", "emmet_language_server", "cucumber_language_server" },
+        ensure_installed = { "ts_ls", "dockerls", "lua_ls", "eslint", "bashls", "pylsp", "html", "intelephense", "gopls", "texlab", "jsonls", "emmet_language_server", "cucumber_language_server" },
       }
       mason_lspconfig.setup_handlers {
         function (server_name)

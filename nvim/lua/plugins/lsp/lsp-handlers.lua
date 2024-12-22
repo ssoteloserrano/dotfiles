@@ -11,7 +11,7 @@ lsp_handlers.setup = function(diagnostic_config)
 end
 
 lsp_handlers.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if client.name == "ts_ls" then
     client.server_capabilities.document_formatting = false
   end
   client.server_capabilities.semanticTokensProvider = nil
