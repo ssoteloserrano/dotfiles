@@ -5,6 +5,9 @@ return {
     local_highlight.setup({
         hlgroup = "Search",
         cw_hlgroup = nil,
+        animate = {
+          enabled = false,
+        },
     })
 
     vim.api.nvim_create_autocmd("BufRead", {

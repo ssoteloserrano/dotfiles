@@ -10,11 +10,11 @@ return {
     },
     config = function()
       local telescope, sorters, actions, previewers, builtin =
-        require("telescope"),
-        require("telescope.sorters"),
-        require("telescope.actions"),
-        require("telescope.previewers"),
-        require("telescope.builtin")
+          require("telescope"),
+          require("telescope.sorters"),
+          require("telescope.actions"),
+          require("telescope.previewers"),
+          require("telescope.builtin")
 
       local rip_grep_config = {
         "rg",
@@ -118,7 +118,8 @@ return {
       end
 
       -- with builtin keymaps
-      vim.keymap.set("n", "ff", find_files_from_root, { desc = "[F]ind [F]iles" })
+      -- vim.keymap.set("n", "ff", find_files_from_root, { desc = "[F]ind [F]iles" })
+      vim.keymap.set("n", "ff", "<CMD>Telescope frecency workspace=CWD<CR>", { desc = "[F]ind [F]iles" })
       vim.keymap.set("n", "<Leader>b", builtin.buffers, { desc = "[B]uffers" })
       vim.keymap.set("n", "<Leader>/", find_files_in_current_buffer, { desc = "[/] Fuzzily search in current buffer" })
 
@@ -129,7 +130,7 @@ return {
       vim.keymap.set("n", "<Leader>h", builtin.help_tags, { desc = "[H]elp Tags" })
       vim.keymap.set("n", "<Leader>c", builtin.registers)
 
-      -- with plugin keymaps 
+      -- with plugin keymaps
       -- vim.keymap.set("n", "<Leader>p", ":lua require('telescope').extensions.project.project{}<CR>")
       vim.keymap.set("n", "dv", ":lua require('telescope').extensions.git_diffs.diff_commits()<CR>")
     end
@@ -143,7 +144,7 @@ return {
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
-    config = function ()
+    config = function()
       require("telescope").setup {
         extensions = {
           ["ui-select"] = {
@@ -154,5 +155,20 @@ return {
       }
       require("telescope").load_extension("ui-select")
     end
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    version = "*",
+    config = function()
+      require("telescope").setup {
+        extensions = {
+          frecency = {
+            show_scores = true,
+            show_filter_column = false
+          }
+        }
+      }
+      require("telescope").load_extension("frecency")
+    end,
   },
 }

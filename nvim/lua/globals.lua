@@ -20,3 +20,6 @@ PP = function (v)
   vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, lines)
   print(v_str)
 end
+
+LF = function ()
+end

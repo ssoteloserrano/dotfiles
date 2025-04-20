@@ -12,7 +12,20 @@ return {
       direction = "horizontal"
     }
 
-    vim.keymap.set("n", "tt", "<CMD>ToggleTerm<CR>", { desc = "[T]oggle [T]erminal" })
+    local function toggle_python_or_terminal()
+      local filetype = vim.bo.filetype
+      local filename = vim.fn.expand("%:p")
+      if filetype == "python" then
+        -- Open terminal and run Python file
+        vim.cmd("ToggleTerm")
+        vim.fn.feedkeys("python3 " .. filename .. "\n", "n")
+      else
+        -- Open terminal in the current file's directory
+        vim.cmd("ToggleTerm dir=%:p:h")
+      end
+    end
+
+    vim.keymap.set("n", "tt", toggle_python_or_terminal, { desc = "[T]oggle [T]erminal" })
     vim.keymap.set("n", "tl", "<CMD>ToggleTermSendCurrentLine<CR>")
     vim.keymap.set("n", "tv", "<CMD>ToggleTermSendVisualLines<CR>")
   end

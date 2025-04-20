@@ -85,6 +85,7 @@ vim.keymap.set("n", "fo", ":%!python -m json.tool", options)
 -- stay in indent mode
 vim.keymap.set("v", "<", "<gv", options)
 vim.keymap.set("v", ">", ">gv", options)
+vim.keymap.set("v", "<Leader>z", ":s///g<Left><Left>", options)
 
 -- Visual Block --
 -- replace all instances that are ONLY inside of visually selected range
