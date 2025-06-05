@@ -3,6 +3,8 @@
 Welcome to my **dotfiles**! 🎉
 A carefully crafted collection of configurations for my Arch Linux setup, featuring a beautiful and efficient tiling window manager environment.
 
+![Desktop](./.github/desktop.png)
+
 ---
 
 ## 🚀 **Key Features**
@@ -81,7 +83,7 @@ Open an **Issue** or **PR**! All contributions are welcome.
 ---
 
 ## 📜 **License**
-MIT © [Your Name](https://github.com/ssoteloserrano)
+MIT © [Scarlett Sotelo](https://github.com/ssoteloserrano)
 
 ---
 
