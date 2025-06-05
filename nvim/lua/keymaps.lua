@@ -77,10 +77,15 @@ vim.keymap.set("n", "<Leader>f.", "<CMD>!open .<CR>", options)
 -- format JSON into human readable form
 vim.keymap.set("n", "fo", ":%!python -m json.tool", options)
 
+-- record/execute macros
+-- vim.keymap.set("n", "Q", "q", options)
+-- vim.keymap.set("n", "q", "@", options)
+
 -- Visual --
 -- stay in indent mode
 vim.keymap.set("v", "<", "<gv", options)
 vim.keymap.set("v", ">", ">gv", options)
+vim.keymap.set("v", "<Leader>z", ":s///g<Left><Left>", options)
 
 -- Visual Block --
 -- replace all instances that are ONLY inside of visually selected range

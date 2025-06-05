@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export OBSIDIAN_VAULT_DIR:/home/scar/Notes
 SETUVAR SSH_KEYS_TO_AUTOLOAD:enviame\x2dssh
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
@@ -39,4 +40,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/usr/local/bin/\x1e/home/scar/go/bin
+SETUVAR fish_user_paths:/home/scar/\x2econfig/rofi/scripts\x1e/home/scar/\x2enix\x2dprofile/bin\x1e/nix/var/nix/profiles/default/bin\x1e/usr/local/bin/\x1e/home/scar/go/bin

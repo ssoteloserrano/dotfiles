@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
 killall -q polybar
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 export WM="module/${GDMSESSION}"
 
@@ -43,8 +44,30 @@ start_bar() {
   echo "Bar launched..."
 }
 
+# Launch the bar
+launch_bar() {
+  # Terminate already running bar instances
+  killall -q polybar
+
+  local current_bar="$1"
+
+  # Wait until the processes have been shut down
+  while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+  if type "xrandr"; then
+    for mon in $(polybar --list-monitors | cut -d":" -f1); do
+        MONITOR=$mon polybar -q $current_bar -c "$DIR"/config.ini &
+    done
+    notify-send "Polybar" "Configuration started" -i "/usr/share/icons/Papirus-Dark/16x16/apps/preferences-desktop-keyboard-shortcuts.svg"
+  else
+    notify-send "Polybar" "Configuration reloaded" -i "/usr/share/icons/Papirus-Dark/16x16/apps/preferences-desktop-keyboard-shortcuts.svg"
+    polybar --reload $current_bar &
+  fi
+}
+
 # start_updates_counter &
 arg1="$1"
-bar=$(get_bar "$arg1")
-start_bar "$bar"
+bar_name=$(get_bar "$arg1")
+# start_bar "$bar_name"
 
+launch_bar "$bar_name"

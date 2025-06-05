@@ -14,7 +14,7 @@ if [ $# -eq 1 ]; then
     selected_path=$1
 else
     folders="/home/scar/\n"
-    folders+=$(find ~/Dropbox -mindepth 0 -maxdepth 3 -type d)"\n"
+    folders+=$(find ~/Notes -mindepth 0 -maxdepth 3 -type d)"\n"
     folders+=$(find ~/Documents -mindepth 0 -maxdepth 2 -type d)"\n"
     folders+=$(find ~/Downloads -mindepth 0 -maxdepth 2 -type d)"\n"
     folders+=$(find ~/.config -mindepth 0 -maxdepth 2 -type d)"\n"
