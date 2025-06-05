@@ -81,7 +81,7 @@ Open an **Issue** or **PR**! All contributions are welcome.
 ---
 
 ## 📜 **License**
-MIT © [Scarlett](https://github.com/ssoteloserrano)
+MIT © [Your Name](https://github.com/ssoteloserrano)
 
 ---
 

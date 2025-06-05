@@ -27,7 +27,7 @@ super + alt + c
 
 # Launch Apps
 super + shift + {f,b,e,m,s,d,w,p}
-	{nemo,brave,geany,spotify-launcher,slack,dbeaver,flatpak run com.ktechpit.whatsie,flameshot gui}
+	{nemo,zen-browser --ProfileManager,geany,spotify,slack,dbeaver,flatpak run com.ktechpit.whatsie,flameshot gui}
 
 # Terminal Apps
 super + alt + {v,r,h,t}
