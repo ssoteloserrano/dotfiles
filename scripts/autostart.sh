@@ -19,8 +19,8 @@ start_auth_agent() {
 }
 
 start_compositor() {
-  if ! pgrep -u $UID -x picom > /dev/null; then
-    while pgrep -u $UID -x picom > /dev/null; do sleep 1; done
+  if ! pgrep -u $UID -x picom >/dev/null; then
+    while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
     picom -b &
   else
     print_status "Compositor" "running"
@@ -28,7 +28,7 @@ start_compositor() {
 }
 
 start_notification_daemon() {
-  if ! pgrep -u $UID -x dunst > /dev/null; then
+  if ! pgrep -u $UID -x dunst >/dev/null; then
     dunst -config ~/.config/dunst/dunstrc &
   else
     print_status "Notification daemon" "running"
@@ -49,5 +49,6 @@ start_compositor
 start_notification_daemon
 start_wallpaper_switcher
 
-xset s off -dpms & # auto sleep mode
+xset s off -dpms &        # auto sleep mode
 setxkbmap us altgr-intl & # keyboard layout
+copyq &                   # to view clipboard history (previous copied entries)
