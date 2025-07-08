@@ -62,7 +62,7 @@ opt.splitright     = true
 
 -- line symbols
 opt.list           = true
-opt.listchars      = { space = "⋅", tab = "| ", eol = "↴" }
+opt.listchars      = { space = "⋅", tab = "| ", eol = "↴", trail = "█" }
 
 -- folding
 opt.foldmethod     = "indent"
