@@ -15,7 +15,7 @@ super + Return
 ##---------- Rofi Launcher & Menus ----------##
 
 # program launcher
-super + shift + {space,r}
+super + shift + {space,Return}
     rofi -show {drun,window} -theme $HOME/.config/rofi/launchers/transparent/style.rasi
 
 # calculator
