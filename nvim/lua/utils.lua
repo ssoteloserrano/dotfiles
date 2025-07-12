@@ -5,7 +5,7 @@ function utils.get_current_os()
 end
 
 function utils.get_project_root()
-  local active_lsp_clients = vim.lsp.get_active_clients()
+  local active_lsp_clients = vim.lsp.vim.lsp.get_clients()
   if type(active_lsp_clients) == "table" and next(active_lsp_clients) ~= nil then
     return active_lsp_clients[1].config.root_dir
   end
