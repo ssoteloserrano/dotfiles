@@ -163,6 +163,7 @@ return {
       require("telescope").setup {
         extensions = {
           frecency = {
+            db_safe_mode = false,
             show_scores = true,
             show_filter_column = false
           }
