@@ -7,9 +7,9 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {},
-  config = function ()
+  config = function()
     local home_dir = os.getenv("OBSIDIAN_VAULT_DIR")
-    require("obsidian").setup ({
+    require("obsidian").setup({
       workspaces = {
         {
           name = "ObsidianVault",
@@ -17,7 +17,7 @@ return {
         },
       },
       completion = {
-        nvim_cmp = true,
+        nvim_cmp = false,
         min_chars = 2,
         use_path_only = false,
       },
