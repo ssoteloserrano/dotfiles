@@ -6,7 +6,6 @@ A carefully crafted collection of configurations for my Arch Linux setup, featur
 ![Desktop](./.github/desktop.png)
 
 ---
-
 ## 🚀 **Key Features**
 ✨ **Optimized configurations** for:
 - **Terminal** (Kitty + Fish shell)
@@ -42,18 +41,18 @@ A carefully crafted collection of configurations for my Arch Linux setup, featur
 ---
 
 ## 🧩 **Available Modules**
-| Module     | Description                          |  
-|------------|--------------------------------------|  
-| **bspwm**  | Tiling window manager configuration  |  
-| **sxhkd**  | Hotkey daemon for window management  |  
-| **polybar**| Status bar with system information   |  
-| **kitty**  | Fast and feature-rich terminal       |  
-| **fish**   | Smart and user-friendly shell        |  
-| **tmux**   | Terminal multiplexer with sessions   |  
-| **neovim** | Modern Vim-based code editor         |  
-| **rofi**   | Application launcher and tools       |  
-| **picom**  | Window compositor for effects        |  
-| **dunst**  | Lightweight notification daemon      |  
+| Module     | Description                          |
+|------------|--------------------------------------|
+| **bspwm**  | Tiling window manager configuration  |
+| **sxhkd**  | Hotkey daemon for window management  |
+| **polybar**| Status bar with system information   |
+| **kitty**  | Fast and feature-rich terminal       |
+| **fish**   | Smart and user-friendly shell        |
+| **tmux**   | Terminal multiplexer with sessions   |
+| **neovim** | Modern Vim-based code editor         |
+| **rofi**   | Application launcher and tools       |
+| **picom**  | Window compositor for effects        |
+| **dunst**  | Lightweight notification daemon      |
 
 *(Customize module selection during installation)*
 
@@ -90,16 +89,16 @@ MIT © [Scarlett Sotelo](https://github.com/ssoteloserrano)
 💻 **Enjoy a supercharged development workflow!**
 Like this project? Leave a ⭐ on GitHub! 🚀
 
---- 
+---
 
 *(README last updated: May 2025)*
 
---- 
+---
 
 🔗 **Useful Links**:
 - [Report an issue](https://github.com/ssoteloserrano/dotfiles/issues)
 - [Changelog](CHANGELOG.md)
 
---- 
+---
 
 ✨ **Happy Coding!** ✨
