@@ -3,8 +3,9 @@ return {
     "saghen/blink.cmp",
     enabled = true,
     dependencies = {
-      "rafamadriz/friendly-snippets",
       { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+      "rafamadriz/friendly-snippets",
+      "Kaiser-Yang/blink-cmp-avante",
     },
     version = "*",
     config = function()
@@ -16,11 +17,17 @@ return {
           nerd_font_variant = "normal",
         },
         sources = {
-          default = { "lsp", "path", "snippets", "buffer" },
+          default = { "avante", "lsp", "path", "snippets", "buffer" },
           providers = {
             cmdline = {
               min_keyword_length = 2,
             },
+            avante = {
+              module = 'blink-cmp-avante',
+              name = 'Avante',
+              opts = {
+              }
+            }
           },
         },
         -- All the available commands here: https://cmp.saghen.dev/configuration/keymap.html#commands
