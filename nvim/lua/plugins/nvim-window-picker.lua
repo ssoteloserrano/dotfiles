@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   version = "2.*",
   config = function()
-    local colors = require("ui.colors")
+    local colors = require("config.ui.colors")
     require("window-picker").setup({
       autoselect_one = true,
       include_current = false,

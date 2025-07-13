@@ -2,7 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    local icons = require("ui.icons")
+    local icons = require("config.ui.icons")
     require("gitsigns").setup({
       signs = {
         add = { text = icons.GitAdd2 },

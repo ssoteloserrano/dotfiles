@@ -3,8 +3,8 @@ if not lualine_status_ok then
   return
 end
 
-local icons = require("ui.icons")
-local colors = require("ui.colors")
+local icons = require("config.ui.icons")
+local colors = require("config.ui.colors")
 local custom_theme = require("plugins.lualine.custom_theme")
 local scar_theme = custom_theme.get_custom_theme()
 

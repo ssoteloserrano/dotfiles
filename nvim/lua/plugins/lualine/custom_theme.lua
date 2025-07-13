@@ -1,6 +1,6 @@
 local custom_theme = {}
 
-local colors = require("ui.colors")
+local colors = require("config.ui.colors")
 
 function custom_theme.get_custom_theme()
   return {

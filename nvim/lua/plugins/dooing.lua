@@ -2,8 +2,8 @@ return {
   "atiladefreitas/dooing",
   version = "v2.4.4",
   config = function()
-    local icons = require("ui.icons")
-    local colors = require("ui.colors")
+    local icons = require("config.ui.icons")
+    local colors = require("config.ui.colors")
 
     require("dooing").setup({
       notes = {
