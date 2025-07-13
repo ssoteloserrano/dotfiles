@@ -69,6 +69,6 @@ local misc_icons = {
 }
 
 local icons = {}
-icons = require("utils").merge_tables(git_icons, code_icons, misc_icons)
+icons = require("config.utils").merge_tables(git_icons, code_icons, misc_icons)
 
 return icons
