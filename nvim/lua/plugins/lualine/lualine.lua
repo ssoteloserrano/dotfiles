@@ -75,7 +75,7 @@ local lsp = {
   function()
     local msg = "No Active Lsp"
     local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.vim.lsp.get_clients()
     if next(clients) == nil then
       return msg
     end
@@ -95,7 +95,7 @@ local custom_git_blame = function(git_icon)
   vim.g.gitblame_display_virtual_text = 0
   local git_blame = require("gitblame")
   if git_blame == nil then
-      return ""
+    return ""
   else
     vim.g.gitblame_date_format = "%r"
     vim.g.gitblame_message_template = git_icon .. " <date> • <author>"
