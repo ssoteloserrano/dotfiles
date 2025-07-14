@@ -1,5 +1,5 @@
--- Whitespace highlighting configuration using virtual text
--- Only highlights trailing whitespace (spaces/tabs at end of line) with a red block
+-- Whitespace highlighting configuration using virtual text Only highlights
+-- trailing whitespace (spaces/tabs at end of line) with a red block
 
 local M = {}
 
@@ -14,9 +14,9 @@ local function highlight_trailing_ws(bufnr)
       local trail = line:sub(s, e)
       for j = 0, #trail - 1 do
         vim.api.nvim_buf_set_extmark(bufnr, ns, i - 1, s - 1 + j, {
-          virt_text = {{"█", "ErrorMsg"}}, -- red block, you can change to a custom group if you want
-          virt_text_pos = 'overlay',
-          hl_mode = 'combine',
+          virt_text = {{"█", "ErrorMsg"}},
+          virt_text_pos = "overlay",
+          hl_mode = "combine",
         })
       end
     end
@@ -27,7 +27,7 @@ function M.setup()
   vim.api.nvim_create_autocmd({"BufEnter", "TextChanged", "TextChangedI", "BufWritePost"}, {
     callback = function(args)
       local ft = vim.api.nvim_buf_get_option(args.buf, "filetype")
-      if ft ~= "snacks_dashboard" then
+      if ft ~= "snacks_dashboard" and ft ~= "Avante" and ft ~= "lazy" then
         highlight_trailing_ws(args.buf)
       else
         vim.api.nvim_buf_clear_namespace(args.buf, ns, 0, -1)
@@ -38,4 +38,4 @@ end
 
 M.setup()
 
-return M 
+return M

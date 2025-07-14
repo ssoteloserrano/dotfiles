@@ -73,4 +73,5 @@ opt.updatetime     = 50
 opt.pumheight      = 10
 opt.completeopt    = "menuone,noinsert,noselect"
 
-opt.cmdheight = 1
+opt.cmdheight      = 1
+vim.opt.laststatus = 3
