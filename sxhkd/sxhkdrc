@@ -22,6 +22,9 @@ super + shift + {space,Return}
 super + alt + c
     rofi -show calc -modi calc -no-show-match -no-sort -theme $HOME/.config/rofi/calculator.rasi
 
+# powermenu
+ctrl + p
+  ~/.config/polybar/scripts/powermenu.sh &
 
 ##---------- Applications ----------##
 
