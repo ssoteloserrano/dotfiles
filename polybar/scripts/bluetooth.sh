@@ -20,6 +20,9 @@
 divider="---------"
 goback="Back"
 
+POWER_ON=${POWER_ON:-"#a6adc8"}
+POWER_OFF=${POWER_OFF:-"#a6adc8"}
+
 RASI="~/.config/rofi/bluetooth.rasi"
 
 # Checks if bluetooth controller is powered on
@@ -188,14 +191,15 @@ print_status() {
     device_name="NA"
     if [[ -z $(bluetoothctl info "$device" | grep "Alias" | cut -d ' ' -f 2-) ]]; then
       if [[ -n "$device" ]]; then
-        $device_name = $device
+        device_name="$device"
       fi
       echo "%{F$POWER_ON}󰂯 %{F-}$device_name"
     fi
 
     paired_devices_cmd="devices Paired"
     # Check if an outdated version of bluetoothctl is used to preserve backwards compatibility
-    if (($(echo "$(bluetoothctl version | cut -d ' ' -f 2) < 5.65" | bc -l))); then
+    version_check=$(echo "$(bluetoothctl version | head -1 | cut -d ' ' -f 2) < 5.65" | bc -l)
+    if [ "$version_check" = "1" ]; then
       paired_devices_cmd="paired-devices"
     fi
 
