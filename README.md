@@ -20,6 +20,45 @@ A carefully crafted collection of configurations for my Arch Linux setup, featur
 
 ---
 
+## 🔄 **System Initialization Flow**
+
+```mermaid
+graph TD
+    A[bspwmrc] --> B[sxhkd]
+    A --> C[Monitor Setup]
+    A --> D[BSPWM Config]
+    A --> E[autostart.sh]
+    A --> F[status_bar_launcher]
+
+    E --> G[picom]
+    E --> H[dunst]
+    E --> I[variety]
+    E --> J[copyq]
+    E --> K[polkit-gnome]
+
+    F --> L[polybar/launch.sh]
+    L --> M[polybar]
+
+    style A fill:#ff6b6b
+    style E fill:#4ecdc4
+    style F fill:#45b7d1
+    style M fill:#96ceb4
+```
+
+**Component Initialization Order:**
+1. **BSPWM** → Window manager configuration
+2. **sxhkd** → Keyboard shortcuts daemon
+3. **Monitor Setup** → Display configuration
+4. **autostart.sh** → System services
+   - **picom** → Window compositor
+   - **dunst** → Notification daemon
+   - **variety** → Wallpaper manager
+   - **copyq** → Clipboard manager
+5. **status_bar_launcher** → Status bar
+   - **polybar** → System status display
+
+---
+
 ## 📥 **Installation**
 
 ### **Prerequisites**
