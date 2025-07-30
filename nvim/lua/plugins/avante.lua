@@ -7,10 +7,17 @@ return {
     version = false, -- set this if you want to always pull the latest change
     build = "make",
     opts = {
-      provider = "llama_3_3_nemotron",
+      provider = "llama_3_1_nemotron",
       providers = {
         gemini = {
           model = "gemini-2.5-flash-preview-04-17",
+        },
+        gemini_2_5_flash = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "google/gemini-2.5-flash",
+          disable_tools = true,
         },
         deepseek_r1_0528 = {
           -- LLM base: DeepSeek Coder
@@ -38,12 +45,12 @@ return {
           },
           disable_tools = true,
         },
-        llama_3_3_nemotron = {
+        llama_3_1_nemotron = {
           -- LLM base: Meta's Llama-3.3
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
-          model = "nvidia/llama-3.3-nemotron-super-49b-v1:free",
+          model = "nvidia/llama-3.1-nemotron-ultra-253b-v1:free",
           extra_request_body = {
             temperature = 0.7,
             reasoning_effort = "low",
@@ -59,14 +66,21 @@ return {
             temperature = 0.7,
             reasoning_effort = "low",
           },
-          disable_tools = true,
+          disabled_tools = { "attempt_completion" },
         },
         openrouter_mistral_small_3_2 = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
           model = "mistralai/mistral-small-3.2-24b-instruct:free",
-          disable_tools = true,
+          disabled_tools = { "attempt_completion" },
+        },
+        openrouter_cloude_sonet_4 = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "anthropic/claude-sonnet-4",
+          disabled_tools = true,
         },
       },
       behaviour = {
