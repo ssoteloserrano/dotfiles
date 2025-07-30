@@ -1,13 +1,65 @@
-;; Caps to escape/control configuration for Kanata
-
 (defsrc
-  caps
+  esc  1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab   q    w    e    r    t       y    u    i    o    p       [    ]    ret
+  caps    a    s    d    f    g       h    j    k    l    ;       '    \
+  lsft      z    x    c    v    b       n    m    ,    .    /       rsft
+  lctl  lmet  lalt             spc              ralt
+)
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 200
+  hold-time 200
+  hold-time-slow 300
 )
 
 (defalias
-  escctrl (tap-hold 100 100 esc lctl)
+  ;; Existing: tap caps for caps, hold for lctl
+  cap (tap-hold-press 200 200 caps lctl)
+
+  ; ;; Super layer: hold f to activate
+  ; super-layer-key (tap-hold-press 200 250 f (layer-toggle super-layer))
+
+  ; ;; Nav layer: hold d to activate
+  ; nav-layer-key (tap-hold-press 200 250 d (layer-toggle nav-layer))
+
+  ; ;; Num layer: hold a to activate
+  ; num-layer-key (tap-hold-press 200 250 a (layer-toggle num-layer))
+
+  lalt (layer-toggle nav)
+  s (tap-hold $tap-time $hold-time s @alt)
 )
 
-(deflayer base
-  @escctrl
+; (deflayer default
+;   esc  1    2    3    4    5       6    7    8    9    0       -    =    bspc
+;   tab   q    w    e    r    t       y    u    i    o    p       [    ]    ret
+;   caps    @num-layer-key    s    @nav-layer-key    @super-layer-key    g       h    j    k    l    ;       '    \
+;   lsft      z    x    c    v    b       n    m    ,    .    /       rsft
+;   lctl  lmet  lalt             spc              ralt
+; )
+
+; (deflayer super-layer
+;   _    _    _    _    _    _       _    _    _    _    _       _    _    _
+;   _    _    _    _    _    _       _    _    _    _    _       _    _    _
+;   _    _    _    _    _    _       _    _    _    _    _       _    _    _
+;   _      _    _    _    _    _       _
+;   _  _  _             _              _
+; )
+
+(deflayer cmd
+  _    _    _    _    _    _       _    _    _    _    _       _    _    _
+  _    _    _    _    _    _       _    _    _    _    _       _    _    _
+  _    _    _    _    _    _       left down up   right _    _       _    _    _
+  _      _    _    _    _    _       _    _    _    _    _       _
+  _  _  _             _              _
 )
+
+; (deflayer num-layer
+;   _    _    _    _    _    _       _    _    _    _    _       _    _    _
+;   _    _    _    _    _    _       _    _    _    _    _       _    _    _
+;   _    _    _    _    _    _       _    _    _    _    _       _    _    _
+;   _      _    _    _    _    _       _    _    _    _    _       _
+;   _  _  _             _              _
+; )
