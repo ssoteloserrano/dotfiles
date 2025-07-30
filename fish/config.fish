@@ -15,5 +15,7 @@ set PATH $PATH /home/scar/.local/bin
 
 set -U fish_user_paths /home/scar/.config/rofi/scripts $fish_user_paths
 
+set -gx PATH $PATH $HOME/.dotnet/tools
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/scar/google-cloud-sdk/path.fish.inc' ]; . '/home/scar/google-cloud-sdk/path.fish.inc'; end
